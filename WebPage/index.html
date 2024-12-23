@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Онлайн тесты</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #d4edda;
+            border-bottom: 2px solid #c3e6cb;
+        }
+        main {
+            display: flex;
+            background-color: #b0ebbd;
+            height: calc(100vh - 56px); 
+
+        }
+        .logo button{
+            font-size: 20px;
+            font-weight: bold;
+            color: #155724;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+        .accountButtons {
+            display: flex;
+            gap: 10px;
+        }
+        .accountButtons button {
+            padding: 5px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: #fff;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .accountButtons button:hover {
+            background-color: #218838;
+        }
+        .headerButtons{
+            margin-right: auto;
+        }
+        .headerButtons button{
+            background-color: transparent;
+            border: none;
+            font-size: 20px;
+            color: #155724;
+        }
+
+        .headerButtons button:hover{
+            color: #218838;
+            cursor: pointer;
+        }
+        #createdTests{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="index.html"><button>Онлайн тесты</button></a>
+        </div>
+        <div class="headerButtons">
+            <a href="testCreate.html"><button onclick="addTest()">Создать тест</button></a>
+        </div>
+        <div class="accountButtons">
+            <button>Вход</button>
+            <button>Регистрация</button>
+        </div>
+    </header>
+    <main>
+        <h5 style="font-size: 16px;">Созданные тесты:</h5>
+        <div id="createdTests">
+        </div>
+    </main>
+    <script>
+        let testsField = document.getElementById("createdTests");
+    
+        function addTest(){
+            var div = document.createElement("div");
+            div.style.padding = "75px 50px";
+            div.style.margin = "15px";
+            div.style.backgroundColor = "yellow";
+            div.style.border = "solid black";
+            testsField.appendChild(div);
+        }
+    </script>
+</body>
+</html>
