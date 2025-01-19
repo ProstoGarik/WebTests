@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haha.ru - Вход</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/using/style.css">
+    <script src="/using/footer-loader.js"></script>
     <style>
         main {
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            padding: 50px 20px;
+            height: 100vh;
         }
+
         main h1 {
             font-size: 2.5em;
             color: #004d40;
             margin-bottom: 20px;
         }
+
         form {
             background-color: white;
             padding: 30px;
@@ -26,12 +30,14 @@
             width: 100%;
             max-width: 400px;
         }
+
         form label {
             display: block;
             margin-bottom: 10px;
             font-size: 1rem;
             color: #004d40;
         }
+
         form input[type="email"],
         form input[type="password"] {
             width: 100%;
@@ -41,6 +47,7 @@
             border-radius: 5px;
             font-size: 1rem;
         }
+
         form button {
             width: 100%;
             padding: 10px;
@@ -52,24 +59,28 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
+
         form button:hover {
             background-color: #004d40;
         }
+
         .remember-me {
             display: flex;
             align-items: center;
             margin-bottom: 20px;
         }
+
         .remember-me input {
             margin-right: 10px;
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="logo-and-forum">
             <a href="index.html">
-                <img src="resources/HahaLogo.png" alt="Логотип">
+                <img src="/resources/HahaLogo.png" alt="Логотип">
             </a>
             <nav>
                 <a href="">Поиск</a>
@@ -95,9 +106,9 @@
                 <input type="checkbox" id="remember-me" name="remember-me">
                 <label for="remember-me">Запомнить меня</label>
             </div>
-
             <button type="submit">Войти</button>
         </form>
     </main>
 </body>
+
 </html>
