@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Haha.ru - Регистрация</title>
     <link rel="stylesheet" href="/using/style.css">
-    <script src="/using/footer-loader.js"></script>
     <style>
         main {
             display: flex;
@@ -13,12 +13,15 @@
             align-items: center;
             flex-direction: column;
             padding: 50px 20px;
+            height: 100vh;
         }
+
         main h1 {
             font-size: 2.5em;
             color: #004d40;
             margin-bottom: 20px;
         }
+
         form {
             background-color: white;
             padding: 30px;
@@ -27,12 +30,14 @@
             width: 100%;
             max-width: 400px;
         }
+
         form label {
             display: block;
             margin-bottom: 10px;
             font-size: 1rem;
             color: #004d40;
         }
+
         form input[type="text"],
         form input[type="email"],
         form input[type="password"] {
@@ -43,12 +48,15 @@
             border-radius: 5px;
             font-size: 1rem;
         }
+
         form input[type="radio"] {
             margin-right: 10px;
         }
+
         form .account-specific {
             display: none;
         }
+
         form button {
             width: 100%;
             padding: 10px;
@@ -60,6 +68,7 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
+
         form button:hover {
             background-color: #004d40;
         }
@@ -80,6 +89,7 @@
         }
     </script>
 </head>
+
 <body>
     <header>
         <div class="logo-and-forum">
@@ -87,8 +97,10 @@
                 <img src="/resources/HahaLogo.png" alt="Логотип">
             </a>
             <nav>
-                <a href="">Поиск</a>
-                <a href="">Форум</a>
+                <div class="search-container">
+                    <a href="#" id="search-link">Поиск</a>
+                </div>
+                <a href="forum.html">Форум</a>
                 <a href="chat.html">Чаты</a>
             </nav>
         </div>
@@ -102,7 +114,8 @@
         <form action="#" method="post">
             <label>Тип аккаунта</label>
             <label>
-                <input type="radio" name="account-type" value="worker" onchange="toggleAccountFields()" required> Работник
+                <input type="radio" name="account-type" value="worker" onchange="toggleAccountFields()" required>
+                Работник
             </label>
             <label>
                 <input type="radio" name="account-type" value="company" onchange="toggleAccountFields()"> Кампания
@@ -133,5 +146,48 @@
             <button type="submit">Зарегистрироваться</button>
         </form>
     </main>
+    <footer>
+        <div class="footer-content">
+            <div class="contact-us">
+                <h3>Связаться с нами:</h3>
+                <p>
+                    <img src="/resources/email.png" alt="Почта" class="icon">
+                    RealPochta100@haha.ru
+                </p>
+                <p>
+                    <img src="/resources/phone.png" alt="Телефон" class="icon">
+                    8 (800) 555-35-35
+                </p>
+                <p>
+                    <img src="/resources/home.png" alt="Адрес" class="icon">
+                    г. Тверь, ул. Настоящая, д. 1
+                </p>
+            </div>
+            <div class="social-media">
+                <h3>Мы в соцсетях:</h3>
+                <div class="icons">
+                    <a href="#"><img src="/resources/facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="/resources/twitter.png" alt="Twitter"></a>
+                    <a href="#"><img src="/resources/instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="/resources/vk.png" alt="Vk"></a>
+                </div>
+            </div>
+            <div class="support-project">
+                <h3>Поддержать проект:</h3>
+                <a href="#" class="support-link">Сделать вклад</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Bananchik. Никакие права не защищены.</p>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('search-link').addEventListener('click', function (event) {
+            event.preventDefault();
+            const searchContainer = this.parentElement;
+            searchContainer.innerHTML = '<input type="text" placeholder="Введите запрос...">';
+        });
+    </script>
 </body>
+
 </html>
