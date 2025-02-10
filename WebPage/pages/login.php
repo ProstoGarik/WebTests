@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Регистрация - Haha.ru</title>
+    <title>Вход - Haha.ru</title>
     <link rel="stylesheet" href="/using/style.css">
     <style>
         main {
@@ -12,7 +12,6 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            padding: 50px 20px;
             height: 100vh;
         }
 
@@ -38,7 +37,6 @@
             color: #004d40;
         }
 
-        form input[type="text"],
         form input[type="email"],
         form input[type="password"] {
             width: 100%;
@@ -47,14 +45,6 @@
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 1rem;
-        }
-
-        form input[type="radio"] {
-            margin-right: 10px;
-        }
-
-        form .account-specific {
-            display: none;
         }
 
         form button {
@@ -72,78 +62,52 @@
         form button:hover {
             background-color: #004d40;
         }
-    </style>
-    <script>
-        function toggleAccountFields() {
-            const workerFields = document.getElementById('worker-fields');
-            const companyFields = document.getElementById('company-fields');
-            const accountType = document.querySelector('input[name="account-type"]:checked').value;
 
-            if (accountType === 'worker') {
-                workerFields.style.display = 'block';
-                companyFields.style.display = 'none';
-            } else if (accountType === 'company') {
-                workerFields.style.display = 'none';
-                companyFields.style.display = 'block';
-            }
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
         }
-    </script>
+
+        .remember-me input {
+            margin-right: 10px;
+        }
+    </style>
 </head>
 
 <body>
     <header>
         <div class="logo-and-forum">
-            <a href="index.html">
+            <a href="index.php">
                 <img src="/resources/HahaLogo.png" alt="Логотип">
             </a>
             <nav>
                 <div class="search-container">
                     <a href="#" id="search-link">Поиск</a>
                 </div>
-                <a href="forum.html">Форум</a>
-                <a href="chat.html">Чаты</a>
+                <a href="forum.php">Форум</a>
+                <a href="chat.php">Чаты</a>
             </nav>
         </div>
         <nav>
-            <a href="registration.html">Регистрация</a>
-            <a href="login.html">Вход</a>
+            <a href="registration.php">Регистрация</a>
+            <a href="login.php">Вход</a>
         </nav>
     </header>
     <main>
-        <h1>Регистрация</h1>
-        <form action="#" method="post">
-            <label>Тип аккаунта</label>
-            <label>
-                <input type="radio" name="account-type" value="worker" onchange="toggleAccountFields()" required>
-                Работник
-            </label>
-            <label>
-                <input type="radio" name="account-type" value="company" onchange="toggleAccountFields()"> Кампания
-            </label>
-
+        <h1>Вход</h1>
+        <form action="/php/functions.php" method="post">
             <label for="email">Почта</label>
-            <input type="email" id="email" name="email" required>
-
-            <div id="worker-fields" class="account-specific">
-                <label for="worker-name">Имя</label>
-                <input type="text" id="worker-name" name="worker-name">
-
-                <label for="worker-surname">Фамилия</label>
-                <input type="text" id="worker-surname" name="worker-surname">
-            </div>
-
-            <div id="company-fields" class="account-specific">
-                <label for="company-name">Название кампании</label>
-                <input type="text" id="company-name" name="company-name">
-            </div>
+            <input type="text" id="email" name="email" required>
 
             <label for="password">Пароль</label>
-            <input type="password" id="password" name="password" required>
+            <input type="text" id="password" name="password" required>
 
-            <label for="confirm-password">Повторите пароль</label>
-            <input type="password" id="confirm-password" name="confirm-password" required>
-
-            <button type="submit">Зарегистрироваться</button>
+            <div class="remember-me">
+                <input type="checkbox" id="remember-me" name="remember-me">
+                <label for="remember-me">Запомнить меня</label>
+            </div>
+            <button type="submit">Войти</button>
         </form>
     </main>
     <footer>

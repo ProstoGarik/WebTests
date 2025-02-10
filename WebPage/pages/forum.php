@@ -117,21 +117,6 @@
             position: relative;
         }
 
-        .logo-and-forum nav a::after {
-            content: '';
-            display: block;
-            width: 1px;
-            height: 100%;
-            background: linear-gradient(to top, transparent, black, transparent);
-            position: absolute;
-            right: -5px;
-            top: 0;
-        }
-
-        .logo-and-forum nav a:last-child::after {
-            display: none;
-        }
-
         header nav a {
             color: white;
             text-decoration: none;
@@ -227,20 +212,20 @@
 <body>
     <header>
         <div class="logo-and-forum">
-            <a href="index.html">
+            <a href="index.php">
                 <img src="/resources/HahaLogo.png" alt="Логотип">
             </a>
             <nav>
                 <div class="search-container">
                     <a href="#" id="search-link">Поиск</a>
                 </div>
-                <a href="forum.html">Форум</a>
-                <a href="chat.html">Чаты</a>
+                <a href="forum.php">Форум</a>
+                <a href="chat.php">Чаты</a>
             </nav>
         </div>
         <nav>
-            <a href="registration.html">Регистрация</a>
-            <a href="login.html">Вход</a>
+            <a href="registration.php">Регистрация</a>
+            <a href="login.php">Вход</a>
         </nav>
     </header>
 

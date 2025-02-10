@@ -4,73 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход - Haha.ru</title>
+    <title>Главная - Haha.ru</title>
     <link rel="stylesheet" href="/using/style.css">
     <style>
         main {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
+            text-align: center;
+            padding: 50px 20px;
         }
 
         main h1 {
-            font-size: 2.5em;
+            font-size: 3em;
             color: #004d40;
             margin-bottom: 20px;
         }
 
-        form {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
+        main p {
+            font-size: 1.2em;
+            color: #00796b;
         }
 
-        form label {
-            display: block;
-            margin-bottom: 10px;
-            font-size: 1rem;
-            color: #004d40;
+        .search-container {
+            display: inline-block;
         }
 
-        form input[type="email"],
-        form input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
+        .search-container input[type="text"] {
+            padding: 5px;
+            font-size: 1em;
             border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        form button {
-            width: 100%;
-            padding: 10px;
-            background-color: #00796b;
-            color: white;
-            font-size: 1rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        form button:hover {
-            background-color: #004d40;
-        }
-
-        .remember-me {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .remember-me input {
-            margin-right: 10px;
+            border-radius: 4px;
         }
     </style>
 </head>
@@ -78,37 +39,42 @@
 <body>
     <header>
         <div class="logo-and-forum">
-            <a href="index.html">
+            <a href="index.php">
                 <img src="/resources/HahaLogo.png" alt="Логотип">
             </a>
             <nav>
                 <div class="search-container">
                     <a href="#" id="search-link">Поиск</a>
                 </div>
-                <a href="forum.html">Форум</a>
-                <a href="chat.html">Чаты</a>
+                <a href="forum.php">Форум</a>
+                <a href="chat.php">Чаты</a>
             </nav>
         </div>
         <nav>
-            <a href="registration.html">Регистрация</a>
-            <a href="login.html">Вход</a>
+            <a href="registration.php">Регистрация</a>
+            <a href="login.php">Вход</a>
         </nav>
     </header>
     <main>
-        <h1>Вход</h1>
-        <form action="#" method="post">
-            <label for="email">Почта</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="password">Пароль</label>
-            <input type="password" id="password" name="password" required>
-
-            <div class="remember-me">
-                <input type="checkbox" id="remember-me" name="remember-me">
-                <label for="remember-me">Запомнить меня</label>
+        <h1>Добро пожаловать на Haha.ru</h1>
+        <div class="slider">
+            <div class="slide">
+                <img src="/resources/Workers.jpg" alt="Фото 1">
+                <p>Нанимайте проффесионалов</p>
             </div>
-            <button type="submit">Войти</button>
-        </form>
+            <div class="slide">
+                <img src="/resources/Career.jpg" alt="Фото 2">
+                <p>Поднимайтесь по карьерной лестнице</p>
+            </div>
+            <div class="slide">
+                <img src="/resources/Office.jpg" alt="Фото 3">
+                <p>Общайтесь с единомышленниками</p>
+            </div>
+            <div class="slide">
+                <img src="/resources/WorldWeb.jfif" alt="Фото 4">
+                <p>Будьте частью IT-сообщества</p>
+            </div>
+        </div>
     </main>
     <footer>
         <div class="footer-content">
@@ -146,6 +112,26 @@
         </div>
     </footer>
     <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slider .slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === index) {
+                    slide.classList.add('active');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        setInterval(nextSlide, 3000);
+        showSlide(currentIndex);
+
         document.getElementById('search-link').addEventListener('click', function (event) {
             event.preventDefault();
             const searchContainer = this.parentElement;
@@ -153,5 +139,4 @@
         });
     </script>
 </body>
-
 </html>
